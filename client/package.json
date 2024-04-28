@@ -1,15 +1,24 @@
 {
-  "name": "main",
+  "name": "client",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.2.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "react": "^18.1.0",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-date-picker": "^8.4.0",
+    "react-dom": "^18.1.0",
+    "react-redux": "^8.0.1",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
+    "react-toastify": "^9.0.1",
+    "sass": "^1.51.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,8 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "sass": "^1.72.0"
   }
 }

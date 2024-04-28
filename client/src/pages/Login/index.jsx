@@ -35,6 +35,12 @@ const Login = () => {
   return (
     <div className="login-page">
       <form onSubmit={handleSubmit}>
+        <div className="logo">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS36flvXXdVddkrTva4CAirFVu9w0iunwTmB4n-RZ_RVA&s"
+            alt="logo"
+          />
+        </div>
         <h2 className="name">Quản lý dự án</h2>
         <div className="input-group">
           <input
