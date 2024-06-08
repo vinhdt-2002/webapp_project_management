@@ -1,10 +1,19 @@
-                                          https://quan-ly-du-an-kma.netlify.app
+# Project management web application
+## Git flow
+Follow a Git branching strategy for efficient development:
 
------------------------------------------------------------------------------------------------------------
-                                          https://www.youtube.com/watch?v=RzQc3XTPpHk
+## Convention
 
------------------------------------------------------------------------------------------------------------
+- **main** branch: Stable code for deployment. Direct pushes are **not allowed**.
+- Feature branches: Always checkout/base from **main** branch (format: [Branch Naming](#branch-naming)).
+- Pull Requests: Submit code for review before merging into main.
 
-<a href="#" target="_blank">
-  <img src="svg/hieujoyce.svg" alt="Hieu Joyce" width="1200" height="750" />
-</a>
+### Branch Naming and Modifier
+
+Branch names must follow the format: `feature.[modifier].trello_card_id`
+
+| Name   | Description             | Example            |
+| ------ | ----------------------- | ------------------ |
+| new    | New feature             | feature.new.foo    |
+| revamp | Update existing feature | feature.revamp.foo |
+| bugfix | Fix bug                 | feature.bugfix.foo |
