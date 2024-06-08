@@ -1,11 +1,11 @@
 import React from "react";
-import Column from "../Column";
-import "./style.scss";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { useSelector, useDispatch } from "react-redux";
-import Spinner from "../Loading/Spinner";
+import { useDispatch, useSelector } from "react-redux";
 import { updateColumn } from "../../redux/thunk/column";
 import { updateProjectColumnOrder } from "../../redux/thunk/project";
+import Column from "../Column";
+import Spinner from "../Loading/Spinner";
+import "./style.scss";
 
 const BoardContend = () => {
     const { data: project } = useSelector((state) => state.project);
@@ -104,7 +104,6 @@ const BoardContend = () => {
             cloneProject.columnOrder.splice(source.index, 1);
             cloneProject.columnOrder.splice(destination.index, 0, draggableId);
             let content = `đã di chuyển vị trí cột ${nameColumn}`;
-            // setBoard(cloneProject);
             dispatch(
                 updateProjectColumnOrder({
                     data: { columnOrder: [...cloneProject.columnOrder] },

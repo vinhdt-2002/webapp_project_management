@@ -2,7 +2,6 @@
     position: fixed;
     top: 0;
     z-index: 20;
-    //left: var(--width-nav);
     right: 0;
     height: var(--height-nav-top);
     width: calc(100vw - var(--width-nav));
@@ -12,6 +11,10 @@
     justify-content: space-between;
     padding: 0 30px;
     transition: width 0.5s ease-in-out;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+
+
 
     .icon {
         margin-right: 20px;
@@ -22,13 +25,18 @@
         width: 40px;
         border-radius: 50%;
         cursor: pointer;
+        border: 1px solid transparent;
+        transition: background-color 0.75s, border 0.75s;
+
         i {
             font-size: 30px;
             color: var(--txt-gray);
         }
 
-        &:hover {
-            background-color: #ebf0fe;
+        &:hover,
+        &:focus {
+            background-color: rgb(179, 223, 245);
+            border: 1px solid #DDD;
         }
     }
 
@@ -37,6 +45,7 @@
         align-items: center;
 
         .back {
+            border: 1px solid transparent; /* Ensure back button also has border initially */
         }
 
         .input {
@@ -58,6 +67,7 @@
                 border: 2px solid var(--txt-gray);
                 padding: 0 20px 0 40px;
                 font-size: 14px;
+
                 &:active,
                 &:focus {
                     border: 2px solid var(--main-color);
@@ -74,8 +84,11 @@
     .right {
         display: flex;
         align-items: center;
+
         .notifi {
             position: relative;
+            border: 1px solid transparent; /* Ensure bell icon also has border initially */
+
             i {
                 color: #000;
             }
@@ -94,6 +107,14 @@
                 justify-content: center;
                 background-color: #ef4345;
             }
+
+            &:hover,
+            &:focus {
+                background-color: rgb(179, 223, 245);
+                border: 1px solid #DDD;
+                border-radius: 50%;
+                transition: 0.75s;
+            }
         }
 
         .info {
@@ -102,12 +123,16 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 5px;
+            border: 1px solid transparent; /* Ensure info dropdown also has border initially */
+            transition: 0.75s;
+
             .avatar {
                 height: 40px;
                 width: 40px;
                 overflow: hidden;
                 border-radius: 50%;
+                border: 2px solid var(--main-color);
                 img {
                     height: 100%;
                     width: 100%;
@@ -116,8 +141,8 @@
             }
 
             .name {
-                font-size: 16px;
-                font-weight: 600;
+                font-size: 15px;
+                font-weight: 500;
                 margin-left: 10px;
             }
 
@@ -125,12 +150,64 @@
                 font-size: 30px;
             }
 
-            &:hover {
+            &:hover,
+            &:focus-within {
                 background-color: #ebf0fe;
+                border: 1px solid #DDD;
             }
 
-            &:hover .dropdown__content {
-                transform: scale(1);
+            .dropdown__content {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                padding: 10px;
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 10;
+                width: calc(100% - 20px);
+
+                .item {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 15px; 
+                    cursor: pointer;
+                    border-radius: 4px;
+                    transition: background-color 0.2s, color 0.2s; 
+                    width: 100%;
+
+                    i {
+                        margin-right: 10px;
+                        font-size: 20px;
+                    }
+
+                    p {
+                        margin: 0;
+                        flex-grow: 1;
+                    }
+
+                    &:hover {
+                        background-color: #ebf0fe;
+                        color: var(--main-color); 
+                    }
+                }
+
+                .line {
+                    height: 1px;
+                    background-color: #ddd;
+                    margin: 5px 0;
+                }
+            }
+
+            &.active .dropdown__content {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
         }
     }

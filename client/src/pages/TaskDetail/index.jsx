@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import "./style.scss";
-import TaskList from "../../components/TaskDetail/TaskList";
-import Comment from "../../components/TaskDetail/Comment";
-import TaskRight from "../../components/TaskDetail/TaskRight";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { getApi } from "../../utils/api";
 import { toast } from "react-toastify";
-import { useSelector, useDispatch } from "react-redux";
 import Spinner from "../../components/Loading/Spinner";
+import Comment from "../../components/TaskDetail/Comment";
+import TaskList from "../../components/TaskDetail/TaskList";
+import TaskRight from "../../components/TaskDetail/TaskRight";
 import { initTask } from "../../redux/taskSlice";
+import { getApi } from "../../utils/api";
+import "./style.scss";
 
 const TaskDetail = () => {
     const navigate = useNavigate();
@@ -50,6 +50,7 @@ const TaskDetail = () => {
                         </button>
                     </div>
                     <TaskList />
+                    <div className="separator"></div>
                     <Comment />
                 </div>
             </div>

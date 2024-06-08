@@ -7,7 +7,8 @@
         height: calc(100vh - var(--height-nav-top));
 
         &-btn {
-            margin: 20px 0 0 170px;
+            margin: 20px 0 0 150px;
+            margin-bottom: 20px;
             button {
                 display: flex;
                 align-items: center;
@@ -15,6 +16,12 @@
                     margin-right: 10px;
                 }
             }
+        }
+        .separator{
+            height: 1px;
+            background:#ddd;
+            width: 90%;
+            margin: 0 auto;
         }
     }
 

@@ -1,33 +1,64 @@
 .act {
-    border-top: 1px solid #ddd;
-
     &__container {
-        max-width: 900px;
+        max-width: 1000px;
         margin: 0 auto;
+        margin-top: 10px;
+        padding:0 50px 0 50px;
+        border: 1px solid #DDD;
+        border-radius: 10px;
+        max-height: 90vh;
     }
 
     &__list {
         margin: 20px 0;
         &-container {
-            height: calc(100vh - var(--height-nav-top) - 100px);
+            max-height: 75vh;
             overflow-y: auto;
         }
     }
 
+    &__title {
+        font-size: 25px;
+        color: var(--main-color);
+        text-align: center;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #ddd;
+    }
+
     &__item {
-        margin: 20px 0;
+        margin: 10px;
         display: flex;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        transition: all 0.3s;
+
+        &:hover {
+            cursor: pointer;
+            border-color: #b3d9ff;
+            background-color: #e6f2ff;
+            .act__item-left__img {
+                border-color: var(--main-color);
+            }
+            p a {
+                color: #0044cc;
+            }
+            p:first-child {
+                color: red;
+            }
+        }
+
         &-left {
             width: 70px;
-            i {
-                font-size: 30px;
-            }
-
             &__img {
-                height: 45px;
-                width: 45px;
+                height: 48px;
+                width: 48px;
                 border-radius: 50%;
+                border: 2px solid transparent;
                 overflow: hidden;
+                transition: border 0.3s;
                 img {
                     height: 100%;
                     width: 100%;
@@ -38,22 +69,22 @@
         &-right {
             flex: 1;
 
-            h3 {
-                border-bottom: 1px solid #ccc;
-                padding-bottom: 10px;
-            }
-
             p {
-                font-size: 16px;
-                font-weight: 400;
+                font-size: 13px;
+                font-weight: 500;
 
                 a {
+                    font-size: 15px;
                     font-weight: 600;
+                    color: inherit;
+                    text-decoration: none;
+                    transition: color 0.3s;
                 }
             }
 
             p + p {
-                font-size: 14px;
+                font-size: 13px;
+                font-weight: 500;
             }
         }
     }
