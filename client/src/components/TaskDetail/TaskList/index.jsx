@@ -36,7 +36,7 @@ const TaskList = () => {
       .catch((err) => {
         toast.error(err.response.data.err);
       });
-    let content = `đã thêm công việc ${data.title} trong thẻ ${task.data?.title}`;
+    let content = `Added task ${data.title} in the card ${task.data?.title}`;
     postApi("/activate", { content, project: project.data?._id }, auth.token);
     setModelAdd(false);
   }
@@ -49,12 +49,12 @@ const TaskList = () => {
           data={data}
           onChangeInput={onChangeInput}
           onSubmit={onSubmit}
-          txtBtn="Thêm công việc"
+          txtBtn="Add task"
         />
       )}
       <div className="taskList__title-container">
         <h2 className="taskList__title">
-          Danh sách công việc <span>{task.data.countWork}</span>
+          Task List <span>{task.data.countWork}</span>
         </h2>
       </div>
       <div className="taskList__controls">
@@ -62,15 +62,15 @@ const TaskList = () => {
           className="taskList__add btn toggle"
           onClick={() => setModelAdd(true)}
         >
-          Thêm công việc
+          Add Task
         </button>
         {show ? (
           <button className="btn toggle" onClick={() => setShow(false)}>
-            Ẩn bớt
+            Show Less
           </button>
         ) : (
           <button className="btn toggle" onClick={() => setShow(true)}>
-            Hiển thị
+            Show More
           </button>
         )}
       </div>

@@ -10,12 +10,12 @@ const CustomDeleteModel = ({ close, onClickDelete, msg }) => {
         <div className="model-delete__btns row">
           <div className="col-6">
             <button onClick={onClickDelete} className="btn bg-red">
-              Xóa
+              Delete
             </button>
           </div>
           <div className="col-6">
             <button onClick={close} className="btn">
-              Hủy bỏ
+              Cancel
             </button>
           </div>
         </div>

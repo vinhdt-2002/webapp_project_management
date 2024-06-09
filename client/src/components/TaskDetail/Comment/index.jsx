@@ -18,7 +18,7 @@ const Comment = () => {
         token: auth.token,
         idProject: project.data._id,
         idTask: task.data._id,
-        content: `đã coment trong thẻ ${task.data.title}`,
+        content: `commented on the card ${task.data.title}`,
       })
     );
     setValue("");
@@ -27,21 +27,21 @@ const Comment = () => {
   return (
     <div className="comment">
       <div className="comment__header-container">
-        <h3 className="comment__header">Bình luận</h3>
+        <h3 className="comment__header">Comments</h3>
         <div className="comment__toggle">
           {showComments ? (
             <button
               className="btn toggle"
               onClick={() => setShowComments(false)}
             >
-              Ẩn bớt
+              Hide
             </button>
           ) : (
             <button
               className="btn toggle"
               onClick={() => setShowComments(true)}
             >
-              Hiển thị
+              Show
             </button>
           )}
         </div>
@@ -50,7 +50,7 @@ const Comment = () => {
         <textarea
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          placeholder="Hãy bình luận về nhiệm vụ này"
+          placeholder="Comment on this task"
           style={{ resize: "none" }}
         ></textarea>
         <div className="comment__input-btns">
@@ -61,7 +61,7 @@ const Comment = () => {
             <i className="bx bx-link-alt"></i>
           </div>
           <button className="btn contain" onClick={onSubmitComment}>
-            Bình luận
+            Comment
           </button>
         </div>
       </div>

@@ -7,6 +7,7 @@ const TitleInput = ({ defaultValue, setTitleInput, column }) => {
   const [value, setValue] = useState(defaultValue);
   const dispatch = useDispatch();
   const { auth, project } = useSelector((state) => state);
+
   useEffect(() => {
     formRef.current.firstChild.focus();
     function handleClickOutside(event) {

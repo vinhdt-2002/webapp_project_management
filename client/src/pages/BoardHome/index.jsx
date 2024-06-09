@@ -113,7 +113,7 @@ const BoardHome = () => {
           data={data}
           onChangeInput={onChangeInput}
           onSubmit={onSubmit}
-          txtBtn={"Thêm dự án"}
+          txtBtn={"Add Project"}
         />
       )}
       {update && (
@@ -122,19 +122,19 @@ const BoardHome = () => {
           data={data}
           onChangeInput={onChangeInput}
           onSubmit={onSubmitUpdate}
-          txtBtn={"Cập nhật dự án"}
+          txtBtn={"Update Project"}
         />
       )}
       {deleteModel && (
         <CustomDeleteModel
-          msg={"Bạn có chắc chắn muốn xóa dự án này?"}
+          msg={"Are you sure to delete this project?"}
           close={closeDeleteModel}
           onClickDelete={onClickDelete}
         />
       )}
       <div className="board-home__header">
         <h2>
-          <span className="active">Dự án</span>
+          <span className="active">Projects</span>
         </h2>
       </div>
       <div className="board-home__body">

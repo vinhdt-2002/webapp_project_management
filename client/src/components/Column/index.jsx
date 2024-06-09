@@ -49,7 +49,7 @@ const Column = ({ column, index }) => {
       column: column._id,
       project: projectData._id,
     };
-    let content = `đã thêm nhiệm vụ ${data.title} vào cột ${column.title}`;
+    let content = `added task ${data.title} to column ${column.title}`;
     dispatch(
       createTask({
         data: newTask,

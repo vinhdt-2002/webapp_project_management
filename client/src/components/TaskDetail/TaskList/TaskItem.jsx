@@ -38,9 +38,9 @@ const TaskItem = ({ index, workData }) => {
       .finally(() => {
         setWorkLoading(false);
       });
-    let content = `đã ${checked ? "" : "bỏ"} tích chọn công việc ${
+    let content = ` ${checked ? "checked" : "unchecked"} sub-tasks ${
       workData.title
-    } trong thẻ ${task.data?.title}`;
+    } in ${task.data?.title}`;
     postApi("/activate", { content, project: project.data?._id }, auth.token);
   }
 
@@ -82,7 +82,7 @@ const TaskItem = ({ index, workData }) => {
       .catch((err) => {
         toast.error(err.response.data.msg);
       });
-    let content = `đã xóa công việc ${workData.title} trong thẻ ${task.data?.title}`;
+    let content = `Deleted task ${workData.title} in the card ${task.data?.title}`;
     postApi("/activate", { content, project: project.data?._id }, auth.token);
     setModelDelete(false);
   }

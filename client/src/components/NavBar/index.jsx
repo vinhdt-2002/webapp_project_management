@@ -43,24 +43,24 @@ const NavBar = ({ nav, setNav }) => {
           className={`item ${p.pathname === "/activate" ? "active" : ""}`}
         >
           <i className="bx bx-run"></i>
-          <p>Hoạt động</p>
+          <p>Activity</p>
         </Link>
 
         <div className="line"></div>
         <Link to={"/"} className={`item ${p.pathname === "/" ? "active" : ""}`}>
           <i className="bx bx-home"></i>
-          <p>Tổng quan</p>
+          <p>Overview</p>
         </Link>
         <Link
           to={"/board"}
           className={`item ${p.pathname.startsWith("/board") ? "active" : ""}`}
         >
           <i className="bx bx-grid-alt"></i>
-          <p>Dự án</p>
+          <p>Projects</p>
         </Link>
         <div className="item">
           <i className="bx bx-calendar-minus"></i>
-          <p>Lịch trình</p>
+          <p>Schedule</p>
         </div>
       </div>
 
@@ -74,11 +74,11 @@ const NavBar = ({ nav, setNav }) => {
       >
         <div className="item">
           <i className="bx bx-help-circle"></i>
-          <p>Giúp đỡ</p>
+          <p>Help</p>
         </div>
         <div className="item">
           <i className="bx bx-cog"></i>
-          <p>Cài đặt</p>
+          <p>Settings</p>
         </div>
       </div>
     </div>

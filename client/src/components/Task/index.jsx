@@ -26,7 +26,7 @@ const Task = ({ task, index }) => {
         token: auth.token,
         idProject: project.data._id,
         idTask,
-        content: `đã xóa nhiệm vụ ${task.title}`,
+        content: `deleted task ${task.title}`,
       })
     );
   }
@@ -76,7 +76,7 @@ const Task = ({ task, index }) => {
                     }}
                   >
                     <i className="bx bx-trash"></i>
-                    <p>Xóa nhiệm vụ</p>
+                    <p>Delete task</p>
                   </div>
                 </div>
               )}

@@ -121,7 +121,7 @@ const Login = () => {
                 alt="logo"
               />
             </div>
-            <h2 className="name">Quản lý dự án</h2>
+            <h2 className="name">TaskHub</h2>
             <div className="input-group">
               <input
                 type="text"
@@ -136,7 +136,7 @@ const Login = () => {
             <div className="input-group">
               <input
                 type="password"
-                placeholder="Mật khẩu"
+                placeholder="Password"
                 name="password"
                 value={login.password}
                 onChange={handleChangeInput}
@@ -145,11 +145,10 @@ const Login = () => {
               />
               <i className="bx bxs-lock-alt"></i>
             </div>
-            <button>Đăng nhập</button>
-            <span href="/">Quên mật khẩu</span>
+            <button>Log in</button>
+            <span href="/">Forgot password</span>
             <p>
-              Bạn chưa có tài khoản?{" "}
-              <Link to={"/register"}>Đăng kí tại đây</Link>
+              Don't have an account? <Link to={"/register"}>Register now</Link>
             </p>
           </form>
         </motion.div>

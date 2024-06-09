@@ -41,7 +41,7 @@ const NavTop = () => {
           <i className="bx bx-left-arrow-alt"></i>
         </div>
         <div className="input">
-          <input type="text" placeholder="Tìm kiếm" />
+          <input type="text" placeholder="Search" />
           <i className="bx bx-search"></i>
         </div>
       </div>
@@ -65,14 +65,14 @@ const NavTop = () => {
           <div className="dropdown__content">
             <div className="item" onClick={() => setProfileModel(true)}>
               <i className="bx bx-user-circle"></i>
-              <p>Thông tin cá nhân</p>
+              <p>Profile</p>
             </div>
             <div className="line">
               <div></div>
             </div>
             <div className="item" onClick={logout}>
               <i className="bx bx-log-out"></i>
-              <p>Đăng xuất</p>
+              <p>Logout</p>
             </div>
           </div>
         </div>

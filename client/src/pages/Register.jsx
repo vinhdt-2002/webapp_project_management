@@ -92,27 +92,27 @@ const Register = () => {
   function checkValidate(register) {
     const err = { email: "", username: "", password: "", confirmPw: "" };
     if (register.email.length === 0) {
-      err.email = "Email không được để trống";
+      err.email = "Email cannot be empty";
     } else if (!validateEmail(register.email)) {
-      err.email = "Email chưa đúng định dạng";
+      err.email = "Email is not in the correct format";
     }
 
     if (register.username.length === 0) {
-      err.username = "Tên tài khoản không được để trống";
+      err.username = "Username cannot be empty";
     } else if (register.username.length > 12) {
-      err.username = "Tên tài khoản không được dài quá 12 kí tự";
+      err.username = "Username cannot be longer than 12 characters";
     } else if (register.username.length < 6) {
-      err.username = "Tên tài khoản không được ngắn hơn 6 kí tự";
+      err.username = "Username cannot be shorter than 6 characters";
     }
 
     if (register.password.length === 0) {
-      err.password = "Mật khẩu không được để trống";
+      err.password = "Password cannot be empty";
     } else if (register.password.length > 25) {
-      err.password = "Mật khẩu không được dài quá 25 kí tự";
+      err.password = "Password cannot be longer than 25 characters";
     } else if (register.password.length < 6) {
-      err.password = "Mật khẩu không được ngắn hơn 6 kí tự";
+      err.password = "Password cannot be shorter than 6 characters";
     } else if (register.password !== register.confirmPw) {
-      err.confirmPw = "Xác nhận mật khẩu không chính xác";
+      err.confirmPw = "Password confirmation does not match";
     }
 
     return err;
@@ -172,7 +172,7 @@ const Register = () => {
                 alt="logo"
               />
             </div>
-            <h2 className="name">Quản lý dự án</h2>
+            <h2 className="name">TaskHub</h2>
             <div className={`input-group ${errForm.email ? "err" : ""}`}>
               <input
                 type="text"
@@ -192,7 +192,7 @@ const Register = () => {
             <div className={`input-group ${errForm.username ? "err" : ""}`}>
               <input
                 type="text"
-                placeholder="Tài Khoản"
+                placeholder="Username"
                 name="username"
                 value={register.username}
                 onChange={handleChangeInput}
@@ -208,7 +208,7 @@ const Register = () => {
             <div className={`input-group ${errForm.password ? "err" : ""}`}>
               <input
                 type="password"
-                placeholder="Mật khẩu"
+                placeholder="Password"
                 name="password"
                 autoComplete="on"
                 value={register.password}
@@ -225,7 +225,7 @@ const Register = () => {
             <div className={`input-group ${errForm.confirmPw ? "err" : ""}`}>
               <input
                 type="password"
-                placeholder="Xác nhận mật khẩu"
+                placeholder="Confirm Password"
                 name="confirmPw"
                 autoComplete="on"
                 value={register.confirmPw}
@@ -239,9 +239,9 @@ const Register = () => {
                 <p>{errForm.confirmPw}</p>
               </div>
             )}
-            <button>Đăng kí</button>
-            <p>
-              Bạn đã có tài khoản? <Link to={"/login"}>Đăng nhập tại đây</Link>
+            <button>Register</button>
+            <p className="txt-center">
+              Already have an account? <Link to={"/login"}>Login here</Link>
             </p>
           </form>
         </motion.div>

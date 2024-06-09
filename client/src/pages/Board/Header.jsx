@@ -58,7 +58,7 @@ const Header = ({ project }) => {
         <div className="info">
           <h2 className="name">
             <span>
-              <Link to={"/board"}>Dự án</Link>
+              <Link to={"/board"}>Board</Link>
             </span>{" "}
             / <span className="active">{project?.title}</span>
           </h2>
@@ -82,17 +82,24 @@ const Header = ({ project }) => {
       <div className="bot">
         <div className="left">
           <a href="/" className="active">
-            Bảng
+            Board
           </a>
         </div>
         <div className="right">
           <button onClick={() => setModel(true)} className="btn contain">
             <i className="bx bx-plus"></i>
-            Thêm cột
+            Add
+          </button>
+          <button
+            onClick={() => setModel(true)}
+            className="btn bg-red text-pink"
+          >
+            <i className="bx bx-minus"></i>
+            Delete
           </button>
           {project?.admins.includes(auth.user._id) && (
             <button onClick={() => setModelManagerMember(true)} className="btn">
-              <p>Quản lý thành viên</p>
+              <p>Manage Members</p>
               <i className="bx bx-user-plus"></i>
             </button>
           )}

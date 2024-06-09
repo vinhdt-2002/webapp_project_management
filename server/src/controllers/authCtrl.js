@@ -13,12 +13,10 @@ export const register = async (req, res) => {
     const { email, username, password } = req.body;
     const findUser = await User.findOne({ username });
     if (findUser)
-      return res
-        .status(400)
-        .json({ err: "Tên tài khoản đã có người sử dụng." });
+      return res.status(400).json({ err: "Username is already taken." });
     const findUser1 = await User.findOne({ email });
     if (findUser1)
-      return res.status(400).json({ err: "Email đã có người sử dụng." });
+      return res.status(400).json({ err: "Email is already taken." });
 
     const err = validateRegister(username, password);
     if (err.length > 0) return res.status(400).json({ err: err });
@@ -41,7 +39,7 @@ export const register = async (req, res) => {
     await user.save();
 
     return res.json({
-      msg: "Đăng kí tài khoản thành công",
+      msg: "Account registration successful",
       user: user,
       accessToken: acToken,
     });
@@ -55,15 +53,11 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     const findUser = await User.findOne({ email });
     if (!findUser)
-      return res
-        .status(400)
-        .json({ err: "Email hoặc mật khẩu không chính xác." });
+      return res.status(400).json({ err: "Incorrect email or password." });
 
     const result = bcrypt.compareSync(password, findUser.password);
     if (!result)
-      return res
-        .status(400)
-        .json({ err: "Tên tài khoản hoặc mật khẩu không chính xác." });
+      return res.status(400).json({ err: "Incorrect username or password." });
     const rfToken = jwt.sign({ id: findUser._id }, secretRfToken, {
       expiresIn: "30d",
     });
@@ -81,7 +75,7 @@ export const login = async (req, res) => {
     });
 
     return res.json({
-      msg: "Đăng nhập tài khoản thành công",
+      msg: "Login successful",
       user: findUser,
       accessToken: acToken,
     });
@@ -95,7 +89,7 @@ export const logout = async (req, res) => {
     res.clearCookie("rf_token", {
       path: "/api/refreshToken",
     });
-    return res.json({ msg: "Đăng xuất thành công" });
+    return res.json({ msg: "Logout successful" });
   } catch (error) {
     res.status(500).json({ err: error.message });
   }
@@ -107,16 +101,15 @@ export const refreshToken = async (req, res) => {
     console.log(refreshToken);
     const { accessToken } = req.body;
     jwt.verify(accessToken, secretAcToken, async (err, decoded) => {
-      if (err) return res.status(400).json({ err: "Xin hãy đăng nhập." });
+      if (err) return res.status(400).json({ err: "Please login." });
       const { id } = decoded;
       const findUsername = await User.findById(id);
-      if (!findUsername)
-        return res.status(400).json({ err: "Xin hãy đăng nhập." });
+      if (!findUsername) return res.status(400).json({ err: "Please login." });
 
       const acToken = jwt.sign({ id: findUsername._id }, secretAcToken, {
         expiresIn: "1d",
       });
-      return res.json({ accessToken: accessToken, user: findUsername });
+      return res.json({ accessToken: acToken, user: findUsername });
     });
   } catch (error) {
     res.status(500).json({ err: error.message });
@@ -138,15 +131,15 @@ export const searchUser = async (req, res) => {
 function validateRegister(username, password) {
   const err = [];
   if (username.length > 25) {
-    err.push("Tên tài khoản không được dài quá 25 kí tự");
+    err.push("Username must not exceed 25 characters");
   } else if (username.length < 6) {
-    err.push("Tên tài khoản không được ngắn hơn 6 kí tự");
+    err.push("Username must be at least 6 characters");
   }
 
   if (password.length > 25) {
-    err.push("Mật khẩu không được dài quá 25 kí tự");
+    err.push("Password must not exceed 25 characters");
   } else if (password.length < 6) {
-    err.push("Mật khẩu khoản không được ngắn hơn 6 kí tự");
+    err.push("Password must be at least 6 characters");
   }
   return err;
 }

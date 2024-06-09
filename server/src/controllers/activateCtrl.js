@@ -11,7 +11,7 @@ export const getActivates = async (req, res) => {
       .populate("project")
       .populate("userTarget");
     return res.json({
-      msg: "Lấy dữ liệu thành công.",
+      msg: "Data retrieved successfully.",
       activates: data,
     });
   } catch (error) {
@@ -29,7 +29,7 @@ export const createActivate = async (req, res) => {
     });
     await newActivate.save();
     return res.json({
-      msg: "Tạo hoạt động thành công.",
+      msg: "Activity created successfully.",
       activate: newActivate,
     });
   } catch (error) {

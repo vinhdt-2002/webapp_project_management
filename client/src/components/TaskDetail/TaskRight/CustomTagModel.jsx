@@ -8,7 +8,7 @@ const CustomTagModel = ({ close, data, onChangeInput, onSubmit }) => {
         <div className="input-group">
           <input
             type="text"
-            placeholder="Nhãn nhiệm vụ"
+            placeholder="Tag name"
             name="tag"
             value={data.tag}
             onChange={onChangeInput}
@@ -16,7 +16,7 @@ const CustomTagModel = ({ close, data, onChangeInput, onSubmit }) => {
           />
           <i className="bx bx-label"></i>
         </div>
-        <button>Cập nhật</button>
+        <button>Update</button>
       </form>
     </Model>
   );

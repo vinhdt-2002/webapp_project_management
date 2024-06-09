@@ -8,7 +8,7 @@ const CustomTitleModel = ({ close, data, onChangeInput, onSubmit }) => {
         <div className="input-group">
           <input
             type="text"
-            placeholder="Tên nhiệm vụ"
+            placeholder="Task name"
             name="title"
             value={data.title}
             onChange={onChangeInput}

@@ -22,12 +22,13 @@ const Activate = () => {
   }, [auth.token]);
 
   function convertDate(dateMongo) {
-    let createdDate = new Date(dateMongo);
-    let month = createdDate.getMonth() + 1;
-    let date = createdDate.getDate();
-    let hour = createdDate.getHours();
-    let min = createdDate.getMinutes();
-    return `${date} month ${month} at ${hour}:${min}`;
+    let created_date = new Date(dateMongo);
+    let year = created_date.getFullYear();
+    let month = created_date.getMonth() + 1;
+    let date = created_date.getDate();
+    let hour = created_date.getHours();
+    let min = created_date.getMinutes();
+    return `Time: ${date}/${month}/${year} at ${hour}:${min}`;
   }
 
   return (
@@ -35,7 +36,7 @@ const Activate = () => {
       <div className="act__container">
         <div className="act__list">
           <div className="act__item-right">
-            <h3 className="act__title">Hoạt động</h3>
+            <h3 className="act__title">Activities</h3>
           </div>
           <div className="act__list-container">
             {activates ? (
@@ -57,7 +58,7 @@ const Activate = () => {
                         {` ${el.content}`}
                       </p>
                       <p>
-                        {convertDate(el.createdAt)} - Trong dự án{" "}
+                        {convertDate(el.createdAt)} within project{" "}
                         <Link to={`/board/${el.project._id}`}>
                           {el.project.title}
                         </Link>

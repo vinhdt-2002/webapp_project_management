@@ -60,8 +60,8 @@
   }
 
   .name {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 25px;
+    font-weight: 800;
     margin-top: 10px;
     margin-bottom: 20px;
     color: var(--main-color);
@@ -116,6 +116,8 @@
   p {
     margin-top: 10px;
     font-size: 14px;
+    align-items: center;
+    text-align: center;
   }
 
   .input-group {

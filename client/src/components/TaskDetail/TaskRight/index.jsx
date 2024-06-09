@@ -115,12 +115,12 @@ const TaskRight = () => {
       const timeDiff = new Date(deadline) - now;
       if (timeDiff > 0) {
         const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        setRemainingTime(`Còn ${daysLeft} ngày`);
+        setRemainingTime(`Remaining ${daysLeft} days`);
       } else {
-        setRemainingTime("Đã quá hạn");
+        setRemainingTime("Overdue");
       }
     } else {
-      setRemainingTime("Không giới hạn");
+      setRemainingTime("No deadline");
     }
   };
 
@@ -174,12 +174,12 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-copy-alt"></i>
         </div>
-        <p>Tên nhiệm vụ</p>
+        <p>Task Name</p>
       </div>
       <div className="taskRight__title ml-40">
         <p>{task.data.title}</p>
         <button className="btn contain" onClick={() => setTitleModel(true)}>
-          Thay đổi
+          Change
         </button>
       </div>
 
@@ -189,12 +189,12 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-captions"></i>
         </div>
-        <p>Mô tả nhiệm vụ</p>
+        <p>Task Description</p>
       </div>
       <div className="taskRight__dec ml-40">
         <p>{task.data.dec}</p>
         <button className="btn contain" onClick={() => setDecModel(true)}>
-          Thay đổi
+          Change
         </button>
       </div>
 
@@ -204,7 +204,7 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-group"></i>
         </div>
-        <p>Thành viên</p>
+        <p>Members</p>
       </div>
       <div className="taskRight__members ml-40">
         <div className="members">
@@ -223,7 +223,7 @@ const TaskRight = () => {
           className="btn contain"
           onClick={() => setModelManagerMember(true)}
         >
-          Quản lí
+          Manage
         </button>
       </div>
 
@@ -233,7 +233,7 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-flag"></i>
         </div>
-        <p>Thời gian hoàn thành</p>
+        <p>Deadline</p>
       </div>
       <div className="taskRight__date ml-40">
         <DatePicker value={value} onChange={onChangeDeadline} />
@@ -245,7 +245,7 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-scatter-chart"></i>
         </div>
-        <p>Tiến độ</p>
+        <p>Progress</p>
       </div>
       <div
         className="taskRight__progress"
@@ -260,15 +260,15 @@ const TaskRight = () => {
         <table className="taskRight__progress-table">
           <tbody>
             <tr>
-              <th>Tổng số công việc</th>
+              <th>Total tasks</th>
               <td>{countWork}</td>
             </tr>
             <tr>
-              <th>Đã hoành thành </th>
+              <th>Completed tasks</th>
               <td>{countWorkComplete}</td>
             </tr>
             <tr>
-              <th>Thời gian còn lại</th>
+              <th>Remaining time</th>
               <td>{remainingTime}</td>
             </tr>
           </tbody>
@@ -281,14 +281,14 @@ const TaskRight = () => {
         <div className="taskRight__name-icon">
           <i className="bx bx-label"></i>
         </div>
-        <p>Nhãn</p>
+        <p>Tag</p>
       </div>
       <div className="taskRight__tag ml-40">
         <div className={`taskRight__tag-item bg-${task.data.color}`}>
           {task.data.tag}
         </div>
         <button className="btn contain" onClick={() => setTagModel(true)}>
-          Thay đổi
+          Change
         </button>
       </div>
     </div>

@@ -18,8 +18,8 @@ const CommentItem = ({ comment }) => {
         <div className="comment__item-footer__icon">
           <i className="bx bx-smile"></i>
         </div>
-        <div className="comment__item-footer__reply">Phản hồi</div>
-        <div className="comment__item-footer__time">now</div>
+        <div className="comment__item-footer__reply">Reply</div>
+        <div className="comment__item-footer__time">Now</div>
       </div>
     </div>
   );
