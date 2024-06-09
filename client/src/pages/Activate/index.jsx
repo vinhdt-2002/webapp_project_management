@@ -22,12 +22,12 @@ const Activate = () => {
   }, [auth.token]);
 
   function convertDate(dateMongo) {
-    let created_date = new Date(dateMongo);
-    let month = created_date.getMonth() + 1;
-    let date = created_date.getDate();
-    let hour = created_date.getHours();
-    let min = created_date.getMinutes();
-    return `${date} tháng ${month} lúc ${hour}:${min}`;
+    let createdDate = new Date(dateMongo);
+    let month = createdDate.getMonth() + 1;
+    let date = createdDate.getDate();
+    let hour = createdDate.getHours();
+    let min = createdDate.getMinutes();
+    return `${date} month ${month} at ${hour}:${min}`;
   }
 
   return (
